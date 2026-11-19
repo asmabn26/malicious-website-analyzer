@@ -23,13 +23,13 @@ The application combines multiple security indicators to assess URL-related risk
 
 ## Project Demonstration
 
-### Video Demo
+## Video Demo
 
-A video demonstration of the **Malicious Website Analyzer** is available to showcase the application's interface and URL security analysis workflow.
+A video demonstration of the **Malicious Website Analyzer** showcases the application's interface and URL security analysis workflow.
 
-**[Watch the Malicious Website Analyzer Demo](YOUR_VIDEO_LINK)**
+https://github.com/user-attachments/assets/92637ca8-f618-4c94-bf84-d5e764b022dc
 
-The demonstration showcases the application's main functionalities, including:
+The demonstration highlights the application's main functionalities, including:
 
 - URL submission and security analysis.
 - Detection of suspicious and potentially malicious URLs.
@@ -38,19 +38,14 @@ The demonstration showcases the application's main functionalities, including:
 - DNS and WHOIS information analysis.
 - Visualization of security findings and risk assessment results.
 
-### Application Preview
-
-
-
-https://github.com/user-attachments/assets/92637ca8-f618-4c94-bf84-d5e764b022dc
-
-
-
-
-
-*Web interface for analyzing potentially malicious websites and reviewing security indicators.*
-
 > **Disclaimer:** This tool is an academic cybersecurity project intended for educational and authorized security analysis. Its results should not be considered a definitive guarantee of website safety.
+
+
+
+
+
+
+
 
 ## Technologies Used
 
