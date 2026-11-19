@@ -1,40 +1,121 @@
 # Malicious Website Analyzer
 
-Outil web d'analyse de risque d'URL développé dans le cadre d'un projet académique de cybersécurité. Il regroupe plusieurs signaux techniques afin d'aider à repérer des sites potentiellement malveillants ou frauduleux.
+**Web-Based URL Security Analysis and Phishing Detection Tool**
 
-> Projet académique. Les résultats sont indicatifs et ne remplacent pas une analyse de sécurité professionnelle.
+## Overview
 
-## Analyse effectuée
+Malicious Website Analyzer is an academic cybersecurity project developed to help identify potentially malicious or fraudulent websites.
 
-- Réputation d'URL avec Google Safe Browsing.
-- Indices de phishing : mots-clés sensibles et raccourcisseurs d'URL.
-- Configuration SSL/TLS et certificats.
-- Informations DNS et WHOIS.
-- Paramètres URL suspects associés aux risques d'injection SQL et XSS.
-- Score de risque consolidé dans une interface web.
+The application combines multiple security indicators to assess URL-related risks and provides a consolidated risk assessment through a web interface.
 
-## Technologies
+## Key Features
 
-Python 3 · Flask · Flask-CORS · Requests · BeautifulSoup · DNS/WHOIS · Cryptography · HTML/CSS/JavaScript
+- **URL Reputation Analysis:** Integration with Google Safe Browsing to identify reported threats.
+- **Phishing Indicators:** Detection of suspicious keywords and URL shortening services.
+- **SSL/TLS Verification:** Inspection of HTTPS certificate information and security configuration.
+- **DNS Analysis:** Examination of domain DNS records.
+- **WHOIS Analysis:** Retrieval of domain registration information.
+- **SQL Injection Indicators:** Identification of suspicious URL parameters and patterns.
+- **XSS Indicators:** Detection of potentially dangerous URL patterns.
+- **Risk Assessment:** Consolidation of findings into a website risk score.
+
+**Important:** SQL injection and XSS checks are indicator-based. They do not constitute comprehensive vulnerability testing or exploitation.
+
+## Technologies Used
+
+| Category | Technologies |
+|---|---|
+| Backend | Python, Flask |
+| Frontend | HTML, CSS, JavaScript |
+| API | Google Safe Browsing |
+| Security Analysis | SSL/TLS, DNS, WHOIS |
+| Python Libraries | Requests, BeautifulSoup, Cryptography, dnspython |
+| Containerization | Docker (configuration included) |
+
+## Project Structure
+
+```text
+malicious-website-analyzer/
+├── app.py
+├── requirements.txt
+├── Dockerfile
+├── .env.example
+├── .gitignore
+├── README.md
+├── analyse.html
+├── about.html
+├── help.html
+├── page.html
+├── style.css
+├── hover.js
+├── Acceuil/
+└── style/
+```
 
 ## Installation
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/YOUR_USERNAME/malicious-website-analyzer.git
+cd malicious-website-analyzer
+```
+
+Replace `YOUR_USERNAME` with your GitHub username.
+
+### 2. Create a virtual environment
 
 ```powershell
 py -m venv .venv
 .\.venv\Scripts\Activate.ps1
+```
+
+### 3. Install dependencies
+
+```bash
 pip install -r requirements.txt
-Copy-Item .env.example .env
+```
+
+### 4. Configure the API key
+
+Copy `.env.example` to `.env` and configure your Google Safe Browsing API key.
+
+```env
+GOOGLE_SAFE_BROWSING_API_KEY=your_api_key_here
+```
+
+Never commit your actual API key.
+
+### 5. Run the application
+
+```bash
 python app.py
 ```
 
-Ajoutez votre propre clé API dans `.env`, puis ouvrez l'adresse affichée par Flask (généralement `http://127.0.0.1:5000`).
+Open the local address displayed by Flask, typically `http://127.0.0.1:5000`, and use the application's interface to submit a URL for analysis.
 
-## Sécurité et limites
+## Security Considerations
 
-- Ne publiez jamais `.env` ni une clé API.
-- Utilisez l'outil uniquement sur des URL dont l'analyse est autorisée.
-- Une absence d'alerte ne garantit pas qu'un site est sûr.
+- The application is intended for educational and authorized security analysis.
+- URL-based SQL injection and XSS indicators do not prove that a website is vulnerable.
+- The absence of detected threats does not guarantee that a website is safe.
+- API credentials must remain confidential.
+- The Flask development server is not intended for production deployment.
+- Public deployment requires additional security hardening.
 
-## Auteur
+## Future Improvements
 
-Asma Bensassi Nour — Étudiante ingénieure en Cyberdéfense, ENSA Marrakech.
+- Automated unit and integration testing.
+- Improved URL validation and protection against server-side request forgery (SSRF).
+- CI/CD integration using GitHub Actions.
+- Improved Docker deployment configuration.
+- Historical scan reports and visualization.
+- More advanced phishing detection techniques.
+
+## Author
+
+**Asma Bensassi Nour**
+
+Cyberdefense Engineering Student — ENSA Marrakech
+
+Academic cybersecurity project focused on web security analysis and malicious URL detection.
