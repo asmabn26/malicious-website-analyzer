@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair Display:wght@500;700&display=swap" rel="stylesheet">
+    <title>Centre d'aide - ASW</title>
+    <style>
+        /* Variables de couleurs */
+        :root {
+            --primary-blue: #0a192f; /* Bleu Navy */
+            --secondary-blue: #2a7fdb;
+            --light-blue: rgba(162, 190, 226, 0.4);
+            --dark-blue: #03265b;
+            --white: #ffffff;
+            --light-grey: #f5f7fa;
+            --grey: #8c9cb3;
+            --dark-grey: #2c3e50;
+            --success-green: #36b37e;
+            --danger-red: #ff5630;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--light-grey);
+            color: var(--dark-grey);
+            line-height: 1.6;
+        }
+        
+        header {
+             background-color: var(--primary-blue);
+             color: var(--white);
+             padding: 1rem 0;
+             box-shadow: var(--shadow-md);
+             width: 100%;
+             position: relative;
+             z-index: 100;
+        }
+
+        .navbar {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-sizing: border-box;
+        }
+
+        .logo {
+             font-size: 1.8rem;
+             font-weight: bold;
+    color: var(--white);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    transition: transform 0.3s ease;
+}
+
+.logo:hover {
+    transform: translateX(5px);
+}
+
+.logo-icon {
+    margin-right: 10px;
+    font-size: 2rem;
+    animation: pulse 2s infinite;
+}
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #3396aa;
+            transition: width 0.3s ease;
+       }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: #3396aa;
+        }
+        
+        main {
+            width: 100%;
+            padding: 3rem 2rem;
+            box-sizing: border-box;
+        }
+        
+        h1 {
+            color: var(--dark-blue);
+            margin-bottom: 2rem;
+            text-align: center;
+            font-size: 2.5rem;
+        }
+        
+        .help-container {
+            display: grid;
+            grid-template-columns: 1fr 4fr;
+            gap: 2rem;
+            margin-bottom: 4rem;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        
+        @media (max-width: 768px) {
+            .help-container {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .help-sidebar {
+            background-color: #e0e4e9;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 2rem;
+            height: fit-content;
+        }
+        
+        .help-content {
+            background-color: var(--white);
+            padding: 2.5rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+        }
+        
+        .search-box {
+            display: flex;
+            margin-bottom: 2rem;
+            width: 100%;
+        }
+        
+        .search-input {
+            flex: 1;
+            padding: 0.8rem 1rem;
+            border: 2px solid var(--light-blue);
+            border-radius: 5px 0 0 5px;
+            font-size: 1rem;
+            outline: none;
+        }
+        
+        .search-button {
+            background-color: var(--primary-blue);
+            color: var(--white);
+            border: none;
+            padding: 0 1.2rem;
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
+        }
+        
+        .help-categories {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+.help-categories li {
+    margin-bottom: 0.5rem;
+    width: 100%;
+}
+
+.help-categories a {
+    display: block;
+    padding: 0.8rem 1rem;
+    color: var(--dark-grey);
+    text-decoration: none;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    width: 100%;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.help-categories a:hover {
+    background-color: rgba(162, 190, 226, 0.2); /* Version très légère */
+}
+
+/* Style actif avec dégradé light blue */
+.help-categories a.active {
+    background: linear-gradient(135deg, rgba(162, 190, 226, 0.3), rgba(122, 176, 247, 0.5));
+    color: var(--primary-blue);
+    font-weight: 600;
+    border-left: 3px solid var(--light-blue);
+    padding-left: calc(1rem - 3px);
+}
+
+/* Effet de lumière optionnel */
+.help-categories a.active::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 5px;
+    box-shadow: inset 0 0 10px rgba(162, 190, 226, 0.4);
+    pointer-events: none;
+}
+        h2 {
+            color: var(--primary-blue);
+            margin-top: 0;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+        
+        h3 {
+            color: var(--dark-blue);
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+        }
+        
+        p {
+            margin-bottom: 1.2rem;
+            font-size: 1.05rem;
+        }
+        
+        .faq-item {
+            margin-bottom: 2rem;
+            border-bottom: 1px solid var(--light-blue);
+            padding-bottom: 1.5rem;
+        }
+        
+        .faq-question {
+            font-weight: 600;
+            color: var(--dark-blue);
+            margin-bottom: 0.8rem;
+            font-size: 1.15rem;
+        }
+        
+        .help-section {
+            margin-bottom: 3rem;
+        }
+        
+        .steps-container {
+            background-color: var(--light-blue);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+        }
+        
+        .step {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+        
+        .step:last-child {
+            margin-bottom: 0;
+        }
+        
+        .step-number {
+            background-color: var(--primary-blue);
+            color: var(--white);
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            flex-shrink: 0;
+        }
+        
+        .highlight-box {
+            background-color: var(--light-blue);
+            border-left: 4px solid var(--primary-blue);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 5px 5px 0;
+        }
+        
+        .alert-box {
+            background-color: #fff3e0;
+            border-left: 4px solid var(--danger-red);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 5px 5px 0;
+        }
+        
+        .contact-options {
+            display: flex;
+            justify-content: center; /* Centre horizontalement */
+            align-items: center; /* Centre verticalement */
+            gap: 2rem; /* Espacement entre les cartes */
+            margin-top: 2rem;
+        }
+
+        .contact-card {
+            background-color: var(--white);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            width: 300px; /* Taille fixe pour uniformité */
+        }
+        
+        @media (max-width: 768px) {
+            .contact-options {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background-color: var(--primary-blue);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+            margin-top: 1rem;
+        }
+        
+        .btn:hover {
+            background-color: var(--dark-blue);
+        }
+        
+        footer {
+            background-color: var(--dark-blue);
+            color: var(--white);
+            padding: 3rem 0;
+            margin-top: 5rem;
+            width: 100%;
+        }
+        
+        .footer-content {
+            width: 100%;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 2rem;
+            box-sizing: border-box;
+        }
+        
+        @media (max-width: 900px) {
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        
+        @media (max-width: 600px) {
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .footer-logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-links h4 {
+            margin-top: 0;
+            margin-bottom: 1.5rem;
+            color: var(--light-blue);
+        }
+        
+        .footer-links ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-links a {
+            color: var(--grey);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: var(--white);
+        }
+        
+        .footer-bottom {
+            width: 100%;
+            margin: 2rem auto 0;
+            padding: 1.5rem 2rem 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            color: var(--grey);
+            font-size: 0.9rem;
+            box-sizing: border-box;
+        }
+        
+        .accent-text {
+            color: var(--primary-blue);
+            font-weight: bold;
+        }
+        
+        .icon-check {
+            color: var(--success-green);
+            margin-right: 0.5rem;
+        }
+        
+        .icon-alert {
+            color: var(--danger-red);
+            margin-right: 0.5rem;
+        }
+        
+        .contact-icon {
+            font-size: 3rem; /* Augmente la taille des icônes */
+            color: var(--primary-blue); /* Conserve la couleur */
+            margin-bottom: 1rem; /* Espacement sous l'icône */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <i class="fas fa-shield-alt"></i>
+                <span>ASW</span>
+            </div>
+            <div class="nav-links">
+                <a href="Acceuil/accueil.html">Accueil</a>
+                <a href="analyse.html">Analyser</a>
+                <a href="page.html">Centre de Cybersécurité</a>
+                <a href="help.html">Centre d'aide</a>
+                <a href="about.html" class="active">A propos</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Centre d'aide - ASW</h1>
+        
+        <div class="help-container">
+            <div class="help-sidebar">
+                <div class="search-box">
+                    <input type="text" class="search-input" placeholder="Rechercher...">
+                    <button class="search-button">🔍</button>
+                </div>
+                
+                <h3>Catégories</h3>
+                <ul class="help-categories">
+                    <li><a href="#premiers-pas" class="active">Premiers pas</a></li>
+                    <li><a href="#utilisation">Utilisation</a></li>
+                    <li><a href="#comprendre-resultats">Comprendre les résultats</a></li>
+                    <li><a href="#depannage">Dépannage</a></li>
+                    <li><a href="#securite">Sécurité</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                    <li><a href="#contact">Nous contacter</a></li>
+                </ul>
+            </div>
+            
+            <div class="help-content">
+                <section id="premiers-pas" class="help-section">
+                    <h2>Premiers pas avec ASW</h2>
+                    <p>Bienvenue dans le centre d'aide de <span class="accent-text">ASW</span>. Notre mission est d'analyser les sites web pour détecter les menaces potentielles de sécurité et vous fournir un rapport détaillé sur leur niveau de sécurité. Que vous soyez un particulier soucieux de votre sécurité en ligne ou un professionnel cherchant à vérifier des sites, notre outil vous offre une analyse complète et fiable.</p>
+                    
+                    <div class="highlight-box">
+                        <p><strong>Pour commencer rapidement :</strong> Entrez simplement l'URL du site web que vous souhaitez analyser dans la barre de recherche et cliquez sur "Analyser". Notre système évaluera rapidement le site et vous fournira un rapport détaillé des risques potentiels.</p>
+                    </div>
+                    
+                    <h3>Qu'est-ce que ASW ?</h3>
+                    <p>ASW est un outil avancé qui analyse les sites web pour détecter les vulnérabilités et menaces potentielles. Notre technologie vérifie plusieurs aspects de sécurité comme les injections SQL, les vulnérabilités XSS, la validité des certificats SSL, et utilise les données de Google Safe Browsing pour vous fournir un rapport complet sur le niveau de sécurité d'un site web.</p>
+                </section>
+                
+                <section id="utilisation" class="help-section">
+                    <h2>Comment utiliser notre outil</h2>
+                    <p>L'utilisation de notre analyseur est simple et intuitive. Suivez ces étapes pour analyser n'importe quel site web.</p>
+                    
+                    <h3>Analyser un site web</h3>
+                    <div class="steps-container">
+                        <div class="step">
+                            <div class="step-number">1</div>
+                            <div>Accédez à la page d'accueil de notre service</div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">2</div>
+                            <div>Entrez l'URL complète du site web à analyser (ex: https://www.youtube.com/)</div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">3</div>
+                            <div>Cliquez sur le bouton "Analyser"</div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">4</div>
+                            <div>Patientez pendant que notre système effectue l'analyse complète</div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">5</div>
+                            <div>Consultez le rapport détaillé des résultats</div>
+                        </div>
+                    </div>
+                    
+                    <div class="alert-box">
+                        <p><strong>Important :</strong> Assurez-vous de saisir l'URL complète, y compris le protocole (http:// ou https://) pour obtenir les résultats les plus précis.</p>
+                    </div>
+                </section>
+                
+                <section id="comprendre-resultats" class="help-section">
+                    <h2>Comprendre les résultats d'analyse</h2>
+                    <p>Une fois l'analyse terminée, notre outil vous présente un rapport détaillé sur la sécurité du site web. Voici comment interpréter les différentes sections du rapport.</p>
+                    
+                    <h3>Éléments analysés</h3>
+                    <p>Notre rapport détaille plusieurs aspects de sécurité :</p>
+                    <ul>
+                        <li><strong>Google Safe Browsing :</strong> Vérifie si le site est signalé comme malveillant dans la base de données de Google</li>
+                        <li><strong>Score de menace :</strong> Une évaluation sur 5 du niveau de risque global</li>
+                        <li><strong>Motifs suspects :</strong> Détection de code ou comportements potentiellement dangereux</li>
+                        <li><strong>Injection SQL :</strong> Vérification des vulnérabilités aux attaques par injection SQL</li>
+                        <li><strong>Vulnérabilités XSS :</strong> Détection des failles de type Cross-Site Scripting</li>
+                        <li><strong>Certificat SSL :</strong> Validation de la sécurité de la connexion et du certificat</li>
+                    </ul>
+                    
+                    <h3>Exemple de rapport</h3>
+                    <p>Voici un exemple d'analyse pour YouTube.com :</p>
+                    <div class="steps-container">
+                        <div class="step">
+                            <div class="step-number">✓</div>
+                            <div><strong>Niveau de risque :</strong> Sécurisé</div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">✓</div>
+                            <div><strong>Google Safe Browsing :</strong> Sécurisé</div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">✓</div>
+                            <div><strong>Score de menace :</strong> 0/5 (Acceptable)</div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">✓</div>
+                            <div><strong>Motifs suspects :</strong> Aucun détecté</div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">✓</div>
+                            <div><strong>Injection SQL :</strong> Aucune détectée</div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">✓</div>
+                            <div><strong>Vulnérabilités XSS :</strong> Aucune détectée</div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">⚠️</div>
+                            <div><strong>Certificat SSL :</strong> Nom de certificat ne correspond pas: *.google.com</div>
+                        </div>
+                    </div>
+                </section>
+                
+                <section id="depannage" class="help-section">
+                    <h2>Dépannage</h2>
+                    <p>Vous rencontrez des problèmes avec notre analyseur ? Voici les solutions aux problèmes les plus courants.</p>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">L'analyse ne démarre pas</div>
+                        <p>Si vous ne parvenez pas à lancer l'analyse, essayez les solutions suivantes :</p>
+                        <ul>
+                            <li>Vérifiez votre connexion internet</li>
+                            <li>Assurez-vous que l'URL est correctement formatée (incluant http:// ou https://)</li>
+                            <li>Essayez de rafraîchir la page</li>
+                            <li>Videz le cache de votre navigateur</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">L'analyse prend trop de temps</div>
+                        <p>Si l'analyse semble bloquée :</p>
+                        <ul>
+                            <li>Le site analysé peut être particulièrement volumineux</li>
+                            <li>Le site peut être temporairement indisponible</li>
+                            <li>Votre connexion internet peut être instable</li>
+                            <li>Essayez de relancer l'analyse</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">Le rapport indique un site dangereux que je sais être sûr</div>
+                        <p>Si notre outil signale un site comme dangereux alors que vous le savez sûr :</p>
+                        <ul>
+                            <li>Le site peut avoir été compromis récemment</li>
+                            <li>Il peut s'agir d'un faux positif</li>
+                            <li>Utilisez le bouton "Signaler un faux positif" dans le rapport</li>
+                            <li>Réanalysez le site ultérieurement pour voir si le problème persiste</li>
+                        </ul>
+                    </div>
+                </section>
+                
+                <section id="securite" class="help-section">
+                    <h2>Bonnes pratiques de sécurité web</h2>
+                    <p>En plus d'utiliser notre analyseur, voici quelques recommandations pour renforcer votre sécurité en ligne :</p>
+                    
+                    <h3>Protection de base</h3>
+                    <ul>
+                        <li>Vérifiez toujours l'URL du site avant de saisir des informations personnelles</li>
+                        <li>Assurez-vous que le site utilise HTTPS (cadenas dans la barre d'adresse)</li>
+                        <li>Méfiez-vous des sites demandant des informations sensibles sans raison</li>
+                        <li>Utilisez des mots de passe uniques et complexes pour chaque service</li>
+                    </ul>
+                    
+                    <h3>Analyse régulière</h3>
+                    <p>Pour une sécurité optimale :</p>
+                    <ul>
+                        <li>Analysez les sites inconnus avant de les utiliser</li>
+                        <li>Vérifiez régulièrement les sites que vous utilisez fréquemment</li>
+                        <li>Portez une attention particulière aux sites demandant des paiements ou des informations personnelles</li>
+                    </ul>
+                    
+                    <div class="highlight-box">
+                        <p><strong>Conseil de pro :</strong> Utilisez notre service d'alertes pour recevoir une notification si un site que vous avez enregistré présente soudainement des risques de sécurité.</p>
+                    </div>
+                </section>
+                
+                <section id="faq" class="help-section">
+                    <h2>Questions fréquemment posées</h2>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">Comment fonctionne l'analyse de sécurité web ?</div>
+                        <p>Notre analyseur évalue plusieurs aspects de sécurité d'un site web. Il vérifie la présence de vulnérabilités connues comme les injections SQL et XSS, consulte les bases de données de sites malveillants, analyse le certificat SSL et effectue des tests de comportement pour détecter d'éventuelles menaces. Toutes ces informations sont ensuite compilées pour générer un rapport de sécurité complet.</p>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">Combien de temps prend une analyse complète ?</div>
+                        <p>La durée d'une analyse dépend de la taille et de la complexité du site web, mais elle prend généralement entre 30 secondes et 2 minutes. Les sites plus volumineux ou comportant de nombreuses pages peuvent nécessiter un temps d'analyse plus long.</p>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">L'analyse peut-elle endommager le site web analysé ?</div>
+                        <p>Non, notre analyseur utilise des méthodes non-intrusives qui ne modifient pas le site web analysé. Nous utilisons des techniques de reconnaissance passive et des tests qui n'interfèrent pas avec le fonctionnement normal du site.</p>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">Puis-je utiliser ce service pour mon entreprise ?</div>
+                        <p>Absolument ! Nous proposons des forfaits adaptés aux entreprises de toutes tailles. Notre offre entreprise comprend des analyses en masse, un tableau de bord centralisé, des rapports détaillés, des analyses programmées et un support prioritaire. Contactez notre équipe commerciale pour en savoir plus.</p>
+                    </div>
+                </section>
+                
+                <section id="contact" class="help-section">
+                    <h2>Nous contacter</h2>
+                    <p>Notre équipe de support est disponible pour vous aider. Choisissez le moyen qui vous convient le mieux :</p>
+                    
+                    <div class="contact-options">
+                        <div class="contact-card">
+                            <div class="contact-icon">📧</div>
+                            <h3>Email</h3>
+                            <p>Réponse sous 24 heures</p>
+                            <a href="#" class="btn">aws@gmail.com</a>
+                        </div>
+                        
+                        <div class="contact-card">
+                            <div class="contact-icon">📞</div>
+                            <h3>Téléphone</h3>
+                            <p>Du lundi au vendredi, 9h-18h</p>
+                            <a href="#" class="btn">0600131415</a>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+    
+    <footer>
+        <div class="footer-content">
+            <div class="footer-info">
+                <div class="footer-logo">🛡️ ASW</div>
+                <p>Votre outil essentiel pour vérifier la sécurité des sites web et vous protéger contre les menaces en ligne.</p>
+            </div>
+            
+            <div class="footer-links">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="#">Analyse standard</a></li>
+                    <li><a href="#">Analyse avancée</a></li>
+                    <li><a href="#">API pour intégration</a></li>
+                    <li><a href="#">Solutions d'entreprise</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-links">
+                <h4>Entreprise</h4>
+                <ul>
+                    <li><a href="#">À propos</a></li>
+                    <li><a href="#">Carrières</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-links">
+                <h4>Ressources</h4>
+                <ul>
+                    <li><a href="#">Centre d'aide</a></li>
+                    <li><a href="#">Base de connaissances</a></li>
+                    <li><a href="#">Politique de confidentialité</a></li>
+                    <li><a href="#">Conditions d'utilisation</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2025 ASW. Tous droits réservés.</p>
+        </div>
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('.help-section');
+            const links = document.querySelectorAll('.help-categories a');
+            
+            // Observer les sections visibles
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        // Retirer 'active' de tous les liens
+                        links.forEach(link => link.classList.remove('active'));
+                        
+                        // Trouver le lien correspondant et ajouter 'active'
+                        const id = entry.target.getAttribute('id');
+                        const matchingLink = document.querySelector(`.help-categories a[href="#${id}"]`);
+                        if (matchingLink) {
+                            matchingLink.classList.add('active');
+                        }
+                    }
+                });
+            }, { threshold: 0.5 });
+            
+            // Observer chaque section
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+        });
+        </script>
+</body>
+</html>

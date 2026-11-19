@@ -1,0 +1,12 @@
+beautifulsoup4
+certifi
+cryptography
+dnspython
+Flask
+Flask-Cors
+pyOpenSSL
+python-dotenv
+python-whois
+requests
+tldextract
+validators

@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Web Page</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair Display:wght@500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <i class="fas fa-shield-alt"></i>
+                <span>ASW</span>
+            </div>
+            <div class="nav-links">
+                <a href="Acceuil/accueil.html" class="active">Accueil</a>
+                <a href="analyse.html">Analyser</a>
+                <a href="page.html">Centre de Cybersécurité</a>
+                <a href="help.html">Centre d'aide</a>
+                <a href="about.html">A propos</a>
+            </div>
+        </nav>
+    </header>
+    <main>
+    <section class="hero">
+       
+          <section class="cyber">
+            <div class="content">
+              <h2>Centre de cybersécurité</h2>
+              <p>
+                Voici une source complète d'informations sur tous les aspects de la cybersécurité. Vous y trouverez des détails sur les menaces en ligne les plus courantes, ainsi que les différentes mesures de sécurité à adopter pour les contrer. Cet espace est conçu pour les personnes intéressées par la cybersécurité, offrant des liens et des ressources utiles pour comprendre les menaces actuelles et apprendre à protéger efficacement leurs appareils.
+              </p>
+              <a href="#" class="btn">Découvrez la cybersécurité</a>
+            </div>
+          </section>
+    </section>
+        <section class="intro">
+            <h1>Introduction à la cybersécurité</h1>
+            <p>La cybersécurité peut être classée en plusieurs catégories distinctes :</p>
+    
+            <div class="card-scroll">
+                <div class="card">
+                    <div class="icon">
+                    
+                        <img src="infra.png" alt="infra" width="50" height="50" class="icon-image"> 
+                    </div>
+                    <div class="text">
+                       <h3>Sécurité des infrastructures sensibles</h3>
+                       <p>Protéger les systèmes critiques (énergie, santé, transport) contre les cyberattaques pouvant perturber leur fonctionnement. Mettre en place des stratégies de défense et de surveillance continue.</p>
+                    </div>
+                </div>
+    
+                <div class="card">
+                    <div class="icon">
+                        <img src="reseau.png" alt="reseau" width="30" height="30" class="icon-image"> 
+                    </div>
+                    <div class="text">
+                       <h3>Sécurité des réseaux</h3>
+                       <p>Empêcher les intrusions et sécuriser les échanges de données grâce à des pare-feu, des VPN et des protocoles de chiffrement. Renforcer la résilience face aux cyberattaques.</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="icon">
+                        <img src="iot logo.png" alt="iot" width="30" height="30" class="icon-image"> 
+                    </div>
+                    <div class="text">
+                        <h3>Sécurité de l'Internet des Objets</h3>
+                        <p>Sécuriser les objets connectés en limitant les accès non autorisés, en appliquant des mises à jour régulières et en protégeant les flux de communication contre les interceptions.</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="icon">
+                        <img src="cloud logo.png" alt="cloud" width="30" height="30" class="icon-image">
+                    </div>
+                    <div class="text">
+                       <h3>Sécurité du cloud</h3>
+                       <p>Garantir la confidentialité et l’intégrité des données stockées en ligne en utilisant des mécanismes d’authentification, de chiffrement et de contrôle des accès.</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="icon">
+                        <img src="application.png" alt="app" width="30" height="30" class="icon-image"> 
+                    </div>
+                    <div class="text">
+                       <h3>Sécurité des applications</h3>
+                       <p>Détecter et corriger les vulnérabilités des logiciels dès leur conception. Appliquer des tests de sécurité rigoureux et intégrer des bonnes pratiques de développement sécurisé.</p>
+                    </div>
+                </div>
+            </div>
+    
+            <a href="#" class="cta-button">Obtenez ASW</a>
+        </section>
+    
+        <script>
+            lucide.createIcons();
+        </script>
+        <section class="cyber-incidents">
+            <h2>Les pires incidents de cybersécurité de tous les temps</h2>
+            <div class="incident-list">
+                <div class="incident-item">
+                    <div class="icon">🔒</div>
+                    <h3>Violation de la base de données Yahoo (2013–2014)</h3>
+                    <p><strong>Combien de comptes ont été affectés ?</strong><br> 3 milliards</p>
+                    <p><strong>Quels types de données ont été affectés ?</strong> <br>Noms, e-mails, numéros de téléphone, dates de naissance, mots de passe chiffrés, questions/réponses de sécurité.</p>
+                    <p><strong>Que s'est-il passé ensuite ?</strong> <br>Yahoo a caché l’ampleur de la faille pendant 4 ans. La révélation en 2016 a fortement affecté sa réputation et a réduit sa valeur de rachat par Verizon.</p>
+                </div>
+                <div class="incident-item">
+                    <div class="icon">📊</div>
+                    <h3>Violation d’Equifax (2017)</h3>
+                    <p><strong>Combien de personnes ont été affectés ?</strong> Environ 147 millions</p>
+                    <p><strong>Quels types de données ont été affectés ?</strong> Numéros de sécurité sociale, dates de naissance, adresses, permis de conduire, parfois numéros de cartes bancaires.</p>
+                    <p><strong>Que s'est-il passé ensuite ?</strong> <br>La faille était connue mais non corrigée. Equifax a été vivement critiquée pour sa négligence et a dû verser 700 millions $ d’indemnités dans un accord avec la FTC.</p>
+                </div>
+                <div class="incident-item">
+                    <div class="icon">💻</div>
+                    <h3>Ransomware WannaCry (2017)</h3>
+                    <p><strong>Combien de machines ont été affectés ?</strong> Plus de 200 000 ordinateurs dans 150 pays.</p>
+                    <p><strong>Quels types de données ont été affectés ?</strong> Fichiers chiffrés sur les ordinateurs infectés, demandant une rançon pour être déverrouillés.</p>
+                    <p><strong>Que s'est-il passé ensuite ?</strong> <br>Le ransomware a paralysé des hôpitaux, entreprises et administrations. L’attaque a été attribuée à la Corée du Nord. Un correctif existait, mais beaucoup ne l’avaient pas appliqué.</p>
+                </div>
+                <div class="incident-item">
+                    <div class="icon">🌐</div>
+                    <h3>Attaque SolarWinds (2020)</h3>
+                    <p><strong>Combien d’organisations ont été affectés ?</strong> <br>Plus de 18 000 clients de SolarWinds, dont des agences gouvernementales américaines</p>
+                    <p><strong>Quels types de données ont été affectés ?</strong> Accès réseau non autorisé, données confidentielles et e-mails internes.</p>
+                    <p><strong>Que s'est-il passé ensuite ?</strong><br> Des acteurs russes ont compromis des mises à jour logicielles. L'espionnage a duré des mois sans être détecté. L’affaire a mis en lumière les failles dans les chaînes logicielles.</p>
+                </div>
+                <div class="incident-item">
+                    <div class="icon">🛡️</div>
+                    <h3>NotPetya (2017)</h3>
+                    <p><strong>Combien d’organisations ont été affectés ?</strong> <br>Des centaines dans le monde, pertes estimées à 10 milliards $</p>
+                    <p><strong>Quels types de données ont été affectés ?</strong> <br>Systèmes informatiques détruits, données chiffrées de manière irréversible.</p>
+                    <p><strong>Que s'est-il passé ensuite ?</strong> <br>Le malware s’est propagé via un logiciel comptable ukrainien. Bien que déguisé en ransomware, il n’était pas récupérable. L’attaque a été attribuée à la Russie.</p>
+                </div>
+                <div class="incident-item">
+                    <div class="icon">📱</div>
+                    <h3>Facebook / Cambridge Analytica (2018)</h3>
+                    <p><strong>Combien d’utilisateurs ont été affectés ?</strong> <br>Environ 87 millions</p>
+                    <p><strong>Quels types de données ont été affectés ?</strong> <br>Données personnelles, intérêts, amis, comportements en ligne, sans consentement.</p>
+                    <p><strong>Que s'est-il passé ensuite ?</strong> <br>Cambridge Analytica a utilisé ces données pour influencer des élections. Facebook a été condamné à une amende record de 5 milliards $ et a perdu la confiance du public.</p>
+                </div>
+                <div class="incident-item">
+                    <div class="icon">⛽</div>
+                    <h3>Colonial Pipeline (2021)</h3>
+                    <p><strong>Quelles conséquences opérationnelles ?</strong> Suspension totale des activités du pipeline, pénurie de carburant dans le sud-est des USA</p>
+                    <p><strong>Quels types de données ont été affectés ?</strong> Systèmes IT paralysés, accès à des fichiers critiques bloqué par ransomware.</p>
+                    <p><strong>Que s'est-il passé ensuite ?</strong> <br>Colonial Pipeline a payé 4,4 millions $ de rançon. L’incident a déclenché une réaction nationale sur la protection des infrastructures critiques.</p>
+                </div>
+            </div>
+        </section>
+        <section class="cyber-regulations">
+            <h2>Réglementations en matière de cybersécurité</h2>
+            <p>Les réglementations en cybersécurité sont essentielles pour protéger les données personnelles et garantir la sécurité des systèmes informatiques. Voici quelques-unes des principales lois et normes :</p>
+            
+            <!-- Titre pour les réglementations internationales -->
+            <h3 class="regulation-category-title">À l'échelle internationale</h3>
+            <div class="regulation-grid">
+                <div class="regulation-card">
+                    <h3>RGPD</h3>
+                    <p><strong>Région :</strong> Union Européenne</p>
+                    <p><strong>Objectif :</strong> Protéger les données personnelles des citoyens européens et renforcer leur contrôle sur ces données.</p>
+                    <p><strong>Autorité :</strong> Commission Européenne et autorités nationales de protection des données.</p>
+                </div>
+                <div class="regulation-card">
+                    <h3>HIPAA</h3>
+                    <p><strong>Région :</strong> États-Unis</p>
+                    <p><strong>Objectif :</strong> Garantir la confidentialité et la sécurité des informations médicales des patients.</p>
+                    <p><strong>Autorité :</strong> Department of Health and Human Services (HHS).</p>
+                </div>
+                <div class="regulation-card">
+                    <h3>ISO/IEC 27001</h3>
+                    <p><strong>Région :</strong> International</p>
+                    <p><strong>Objectif :</strong> Fournir un cadre pour la gestion de la sécurité de l'information.</p>
+                    <p><strong>Autorité :</strong> Organisation Internationale de Normalisation (ISO) et Commission Électrotechnique Internationale (IEC).</p>
+                </div>
+                <div class="regulation-card">
+                    <h3>CCPA</h3>
+                    <p><strong>Région :</strong> Californie, États-Unis</p>
+                    <p><strong>Objectif :</strong> Donner aux consommateurs californiens plus de contrôle sur leurs données personnelles.</p>
+                    <p><strong>Autorité :</strong> California Attorney General.</p>
+                </div>
+            </div>
+
+            <!-- Titre pour les réglementations nationales -->
+            <h3 class="regulation-category-title">À l'échelle nationale (Maroc)</h3>
+            <div class="regulation-grid">
+                <div class="regulation-card">
+                    <h3>Loi 09-08</h3>
+                    <p><strong>Région :</strong> Maroc</p>
+                    <p><strong>Objectif :</strong> Protéger les données personnelles et réglementer leur traitement par les entreprises et les administrations.</p>
+                    <p><strong>Autorité :</strong> Commission Nationale de Contrôle de la Protection des Données à Caractère Personnel (CNDP).</p>
+                </div>
+                <div class="regulation-card">
+                    <h3>Stratégie Nationale de Cybersécurité</h3>
+                    <p><strong>Région :</strong> Maroc</p>
+                    <p><strong>Objectif :</strong> Renforcer la résilience des infrastructures critiques et promouvoir une culture de cybersécurité au niveau national.</p>
+                    <p><strong>Autorité :</strong> Direction Générale de la Sécurité des Systèmes d'Information (DGSSI).</p>
+                </div>
+                <div class="regulation-card">
+                    <h3>Loi 05-20</h3>
+                    <p><strong>Région :</strong> Maroc</p>
+                    <p><strong>Objectif :</strong> Renforcer la sécurité des systèmes d'information des infrastructures critiques et établir des obligations pour les opérateurs.</p>
+                    <p><strong>Autorité :</strong> Direction Générale de la Sécurité des Systèmes d'Information (DGSSI).</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 Analyse de Sites Malveillants</p>
+    </footer>
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const incidentList = document.querySelector('.incident-list');
+            let isDown = false;
+            let startX;
+            let scrollLeft;
+
+            incidentList.addEventListener('mousedown', (e) => {
+                isDown = true;
+                incidentList.classList.add('active');
+                startX = e.pageX - incidentList.offsetLeft;
+                scrollLeft = incidentList.scrollLeft;
+            });
+
+            incidentList.addEventListener('mouseleave', () => {
+                isDown = false;
+                incidentList.classList.remove('active');
+            });
+
+            incidentList.addEventListener('mouseup', () => {
+                isDown = false;
+                incidentList.classList.remove('active');
+            });
+
+            incidentList.addEventListener('mousemove', (e) => {
+                if (!isDown) return;
+                e.preventDefault();
+                const x = e.pageX - incidentList.offsetLeft;
+                const walk = (x - startX) * 2; // Scroll speed
+                incidentList.scrollLeft = scrollLeft - walk;
+            });
+        });
+    </script>
+</html>
