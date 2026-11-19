@@ -21,6 +21,37 @@ The application combines multiple security indicators to assess URL-related risk
 
 **Important:** SQL injection and XSS checks are indicator-based. They do not constitute comprehensive vulnerability testing or exploitation.
 
+## Project Demonstration
+
+### Video Demo
+
+A video demonstration of the **Malicious Website Analyzer** is available to showcase the application's interface and URL security analysis workflow.
+
+**[Watch the Malicious Website Analyzer Demo](YOUR_VIDEO_LINK)**
+
+The demonstration showcases the application's main functionalities, including:
+
+- URL submission and security analysis.
+- Detection of suspicious and potentially malicious URLs.
+- Website reputation verification.
+- SSL/TLS certificate inspection.
+- DNS and WHOIS information analysis.
+- Visualization of security findings and risk assessment results.
+
+### Application Preview
+
+
+
+https://github.com/user-attachments/assets/92637ca8-f618-4c94-bf84-d5e764b022dc
+
+
+
+
+
+*Web interface for analyzing potentially malicious websites and reviewing security indicators.*
+
+> **Disclaimer:** This tool is an academic cybersecurity project intended for educational and authorized security analysis. Its results should not be considered a definitive guarantee of website safety.
+
 ## Technologies Used
 
 | Category | Technologies |
